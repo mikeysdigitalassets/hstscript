@@ -8,7 +8,7 @@
 // ==/UserScript==
 
 function fetchTasks() {
-    // Making an AJAX request to the Task Manager tab URL
+    // make an ajax request to the task manager tab URL
     GM_xmlhttpRequest({
         method: "GET",
         url: "https://hstasp14.hstpathways.com/UPSC/HSTeChart/Home/GetTaskManagerForm?pageNo=1",
@@ -27,7 +27,7 @@ function fetchTasks() {
 }
 
 function checkTasks(html) {
-    // You need to parse the HTML response to find the number of tasks
+    //  parse the HTML response to find the number of tasks
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
     const taskCountElement = doc.querySelector('#taskResultPanel ul li span small');
@@ -49,7 +49,7 @@ function checkTasks(html) {
     }
 }
 
-// Run the task check periodically (every 5 minutes, for example)
+// run task to check periodically (every 5 minutes)
 setInterval(fetchTasks, 30000); // 300000 milliseconds = 5 minutes
 
 // Also check immediately when the page loads
